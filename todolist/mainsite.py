@@ -1,7 +1,9 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, jsonify
+from .db import get_db
 
 bp = Blueprint('mainsite', __name__, url_prefix='/')
 
 @bp.route('/')
 def hello():
-    return render_template('base.html')
+    print(get_db)
+    return jsonify({'a': 12})
